@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .message {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>🔹 Age Checker 🔹</h2>
+    <p>Enter your age:</p>
+    <input type="number" id="ageInput" min="1" placeholder="Your age">
+    <br>
+    <button onclick="checkAge()">Check</button>
+    <p class="message" id="messageBox"></p>
+  </div>
+
+  <script>
+    function checkAge() {
+      const age = parseInt(document.getElementById('ageInput').value);
+      const messageBox = document.getElementById('messageBox');
+
+      if (isNaN(age) || age <= 0) {
+        messageBox.textContent = "❗ Please enter a valid age.";
+        messageBox.style.color = "red";
+      } else if (age < 18) {
+        messageBox.textContent = "📚 Focus on your study.";
+        messageBox.style.color = "#f39c12";
+      } else if (age >= 65) {
+        messageBox.textContent = "🧓 You are retired.";
+        messageBox.style.color = "#9b59b6";
+      } else {
+        messageBox.textContent = "✅ You can register and go to work!";
+        messageBox.style.color = "green";
+      }
+    }
+  </script>
+
+</body>
+</html>
